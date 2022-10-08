@@ -1,0 +1,31 @@
+<!--https://www.geeksforgeeks.org/how-to-read-a-local-text-file-using-javascript/-->
+
+<html>
+
+<head>
+    <title>ICU Patient Mortality Prediction</title>
+</head>
+
+<h1>ICU Patient Mortality Prediction</h1>
+
+<form method="POST" action="/" enctype="multipart/form-data">
+    <input type="file" name="file" id="file"/>
+    <input type="submit" value="Predict" />
+</form>
+
+<fieldset>
+    <pre id="output"></pre>
+</fieldset>
+
+
+<script type="text/javascript">
+    document.getElementById('file').addEventListener('change', function () {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById('output').textContent = fr.result;
+        }
+        fr.readAsText(this.files[0]);
+    })
+</script>
+
+</html>
