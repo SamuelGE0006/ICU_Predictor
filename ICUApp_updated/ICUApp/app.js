@@ -41,5 +41,5 @@ app.post('/', (req, res) => {
 })
 
 app.get('/explanation', (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "results.html"));
+    res.sendFile(path.join(__dirname, "views", "explanation.html"));
 })
