@@ -19,7 +19,7 @@ const app = express();
 
 app.use(upload())
 
-PORT_NUMBER = 8082;
+PORT_NUMBER = 8081;
 app.listen(PORT_NUMBER, () => {
     console.log('Server Live at Port: ' + PORT_NUMBER);
 });
