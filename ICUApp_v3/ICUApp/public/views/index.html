@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>ICU Patient Mortality Prediction</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+</head>
+
+<div class="p-5 text-left bg-light">
+    <h1 class="mb-3">ICU Patient Mortality Prediction</h1>
+    <h3 style="color: rgb(90, 90, 90);">FIT3164 - Team DS_5</h3>
+</div>
+
+<br>
+
+<form method="POST" action="/" enctype="multipart/form-data">
+    <div class="form-group" style="margin-left: 45px;">
+        <input type="file" name="file" id="file"/>
+        <input type="submit" value="Predict" />
+    </div>
+</form><br><br>
+
+<fieldset style="margin-left: 45px;">
+    <pre id="output"></pre>
+</fieldset>
+
+
+<script type="text/javascript">
+    document.getElementById('file').addEventListener('change', function () {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById('output').textContent = fr.result;
+        }
+        fr.readAsText(this.files[0]);
+    })
+</script>
+
+</html>
