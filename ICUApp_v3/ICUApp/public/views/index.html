@@ -2,7 +2,7 @@
 
 <head>
     <title>ICU Patient Mortality Prediction</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
 </head>
 
@@ -15,10 +15,16 @@
 
 <form method="POST" action="/" enctype="multipart/form-data">
     <div class="form-group" style="margin-left: 45px;">
-        <input type="file" name="file" id="file"/>
-        <input type="submit" value="Predict" />
+        <label for="file">Upload patient record (must be in <b>txt</b> or <b>csv</b> format):</label><br>
+        <input style="margin-top: 5px;" type="file" name="file" id="file" accept=".txt,.csv">
+        <!-- <button disabled style="margin-left: 140px; border-width: 1pt;" type="submit" id="predict" name="predict"
+            onclick="this.disabled=true">
+            Predict
+        </button> -->
+        <input disabled style="margin-left: 140px;" type="submit" id="predict" name="predict" value="Predict">
     </div>
-</form><br><br>
+</form><br>
+<hr>
 
 <fieldset style="margin-left: 45px;">
     <pre id="output"></pre>
@@ -30,9 +36,13 @@
         var fr = new FileReader();
         fr.onload = function () {
             document.getElementById('output').textContent = fr.result;
+            document.getElementById('predict').disabled = false;
         }
         fr.readAsText(this.files[0]);
     })
+    // document.getElementById('predict').addEventListener("submit", function() {
+    //     this.disabled = true;
+    // })
 </script>
 
 </html>
