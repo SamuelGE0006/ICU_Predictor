@@ -157,12 +157,12 @@ def get_variable_row_values(df, variable_name):
 
 
 if __name__ == "__main__":
-    # print(sys.argv[1])
+    print(sys.argv[1])
     file_path = sys.argv[1]
     pred_df = pred_file_to_df(file_path)
     pred_df_values_np_array = np.array(pred_df.values)
-    # print(pred_df_values_np_array)
-    # print(pred_df.values)
+    print(pred_df_values_np_array)
+    print(pred_df.values)
 
     model = pickle.load(open('ml_models/randomForestModel.sav', 'rb'))
 

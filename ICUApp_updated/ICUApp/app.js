@@ -35,12 +35,13 @@ app.post('/', (req, res) => {
 
         file.mv('./uploads/' + filename, function (err) {
             if (err) {
+                console.log(err);
                 res.send(err);
             } else {
                 var spawn = require('child_process').spawn;
                 var filePath = path.join('uploads', filename);
                 console.log(filePath);
-                var process = spawn('python', ["predict.py", filePath]);
+                var process = spawn('python3', ["predict.py", filePath]);
                 process.stdout.on('data', function(data) {
                     console.log(data.toString());
                 });
