@@ -33,7 +33,7 @@ app.post('/', (req, res) => {
                 var spawn = require('child_process').spawn;
                 var filePath = path.join('uploads', filename);
                 console.log(filePath);
-                var process = spawn('python', ["predict.py", filePath]);
+                var process = spawn('python3', ["predict.py", filePath]);
 
                 let output = '';
                 process.stdout.on('data', function(data) {
